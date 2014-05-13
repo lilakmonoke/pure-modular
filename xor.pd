@@ -1,0 +1,11 @@
+#N canvas 0 22 728 510 10;
+#X obj 242 253 expr ($f1 > 0 && $f2 <= 0) || ($f1 <= 0 && $f2 > 0)
+;
+#X obj 212 122 inlet;
+#X obj 541 133 inlet;
+#X obj 251 353 outlet;
+#X obj 18 14 xor;
+#X text 47 12 - bitwise xor;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 1;

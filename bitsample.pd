@@ -1,0 +1,20 @@
+#N canvas 586 146 450 300 10;
+#X obj 85 32 inlet;
+#X floatatom 109 112 5 0 0 0 - - -;
+#X obj 108 76 f;
+#X obj 154 36 inlet;
+#X obj 106 183 outlet;
+#X obj 107 149 > 0;
+#X text 152 13 float;
+#X text 84 11 bang;
+#X text 83 209 binary (1 or 0);
+#X text 47 239 On bang \, samples the float inlet and stores it in
+the number.;
+#X text 313 20 Trevor Wilson;
+#X text 314 38 wilsontr@gmail.com;
+#X text 315 59 2014;
+#X connect 0 0 2 1;
+#X connect 1 0 5 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 5 0 4 0;

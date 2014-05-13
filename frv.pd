@@ -1,0 +1,117 @@
+#N canvas 55 54 1264 614 10;
+#X obj 720 160 phasor~;
+#X obj 604 182 samphold~;
+#X obj 660 312 snapshot~;
+#X obj 954 65 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 641 281 atc~;
+#X obj 415 255 samphold~;
+#X obj 419 326 snapshot~;
+#X obj 401 290 atc~;
+#X floatatom 659 353 10 0 0 0 - - -;
+#X floatatom 769 121 5 0 0 0 - - -;
+#X obj 1028 292 snapshot~;
+#X floatatom 984 381 5 0 0 0 - - -;
+#X obj 1002 100 metro 5;
+#X obj 938 276 atc~;
+#X obj 1029 322 abs;
+#X obj 900 241 lop~;
+#X obj 627 245 lop~;
+#X floatatom 429 360 5 0 0 0 - - -;
+#X obj 463 302 r \$0-timer;
+#X obj 700 284 r \$0-timer;
+#X obj 1007 130 s \$0-timer;
+#X obj 1024 254 r \$0-timer;
+#X obj 972 34 loadbang;
+#X msg 959 211 10000;
+#X obj 261 138 knob 32 32 0.01 1000 1 0 empty empty probable_rate_of_change
+-87 -8 1 10 -262144 -4160 -4160 0 1;
+#X obj 262 54 loadbang;
+#X obj 258 213 s \$0-rate;
+#X obj 694 53 f;
+#X obj 655 18 inlet;
+#X obj 722 18 r \$0-rate;
+#X obj 730 205 expr~ $v2 || $v1;
+#X obj 664 402 outlet;
+#X obj 429 409 outlet;
+#X obj 509 218 phasor~;
+#X text 103 101 fluctuating random voltages;
+#X text 474 409 stepped;
+#X text 709 401 smooth;
+#X obj 671 155 * 0.3;
+#X text 588 15 frequency;
+#N canvas 623 107 450 300 noisytri 0;
+#X obj 154 437 outlet~;
+#X obj 101 341 tri~;
+#X msg 148 233 100;
+#X obj 86 107 noise~;
+#X obj 90 151 snapshot~;
+#X obj 164 102 metro 1;
+#X obj 167 59 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 88 259 +;
+#X obj 76 205 * 30;
+#X obj 163 184 loadbang;
+#X obj 191 35 loadbang;
+#X connect 1 0 0 0;
+#X connect 2 0 7 1;
+#X connect 3 0 4 0;
+#X connect 4 0 8 0;
+#X connect 5 0 4 0;
+#X connect 6 0 5 0;
+#X connect 7 0 1 0;
+#X connect 8 0 7 0;
+#X connect 9 0 2 0;
+#X connect 10 0 6 0;
+#X restore 476 84 pd noisytri;
+#X text 16 11 frv - fluctuating random voltages;
+#X text 20 263 Ths is based on one section of the Buchla Model 266
+Source of Uncertainty module \, which also inspired Grant Richter's
+Wogglebug module. A "noisy triangle" wave (a 100hz triangle FMed by
+random noise) is sampled at intervals determed by the frequency of
+a phasor. The probable rate of change knob controls the frequency of
+the phasor as well as the cutoff frequency of a low-pass filter. The
+filter is applied to the output of the sample & hold \, and from this
+the "smooth" output is generated. For the stepped output \, another
+phasor (also controlled by the knob/inlet) samples the noisy triangle
+and the output is sent to the outlet.;
+#X text 18 541 Trevor Wilson;
+#X text 19 559 wilsontr@gmail.com;
+#X text 20 578 2014;
+#X connect 0 0 1 1;
+#X connect 0 0 30 1;
+#X connect 1 0 16 0;
+#X connect 1 0 30 0;
+#X connect 2 0 8 0;
+#X connect 3 0 12 0;
+#X connect 4 0 2 0;
+#X connect 5 0 7 0;
+#X connect 6 0 17 0;
+#X connect 7 0 6 0;
+#X connect 8 0 31 0;
+#X connect 10 0 14 0;
+#X connect 12 0 20 0;
+#X connect 13 0 10 0;
+#X connect 14 0 11 0;
+#X connect 15 0 13 0;
+#X connect 16 0 4 0;
+#X connect 17 0 32 0;
+#X connect 18 0 6 0;
+#X connect 19 0 2 0;
+#X connect 21 0 10 0;
+#X connect 22 0 3 0;
+#X connect 23 0 15 1;
+#X connect 24 0 26 0;
+#X connect 25 0 24 0;
+#X connect 27 0 0 0;
+#X connect 27 0 9 0;
+#X connect 27 0 33 0;
+#X connect 27 0 37 0;
+#X connect 28 0 27 0;
+#X connect 29 0 27 0;
+#X connect 30 0 15 0;
+#X connect 33 0 5 1;
+#X connect 37 0 16 1;
+#X connect 39 0 5 0;
+#X connect 39 0 1 0;
+#X coords 0 -1 1 1 200 80 2 100 100;

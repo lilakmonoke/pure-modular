@@ -1,0 +1,42 @@
+#N canvas 65 193 685 490 10;
+#X obj 279 112 t b b l;
+#X obj 281 246 list split 1;
+#X obj 282 277 list trim;
+#X msg 342 62 1 0 1 0 1 0 1;
+#X obj 332 7 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 408 204 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 277 153 until;
+#X obj 276 196 list append;
+#X obj 282 332 expr ($f2 << 1) + $f1;
+#X floatatom 444 233 5 0 0 0 - - -;
+#X msg 393 125 0;
+#X obj 280 38 inlet;
+#X obj 275 428 outlet;
+#X obj 299 388 i;
+#X obj 12 6 bytepack;
+#X text 12 31 Packs a list of binary integers (0 or 1) into a byte
+(0-256).;
+#X text 577 422 Trevor Wilson;
+#X text 547 440 wilsontr@gmail.com;
+#X text 630 458 2014;
+#X connect 0 0 6 0;
+#X connect 0 1 10 0;
+#X connect 0 2 7 1;
+#X connect 1 0 2 0;
+#X connect 1 1 7 1;
+#X connect 1 2 5 0;
+#X connect 2 0 8 0;
+#X connect 3 0 0 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 1;
+#X connect 5 0 13 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 0;
+#X connect 8 0 9 0;
+#X connect 8 0 13 1;
+#X connect 9 0 8 1;
+#X connect 10 0 9 0;
+#X connect 11 0 0 0;
+#X connect 13 0 12 0;
